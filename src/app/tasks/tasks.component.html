@@ -1,0 +1,13 @@
+<div class="card">
+  <ul>
+    <li *ngFor="let task of tasks">
+      <i *ngIf="!task.isDone" class="fa fa-square-o" (click)="markDone(task)"></i>
+
+      <i *ngIf="task.isDone" class="fa fa-check-square-o" (click)="markUndone(task)"></i>
+
+      {{task.name}}
+
+      <i class="fa fa-trash-o"></i>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,23 @@
+ul {
+  list-style-type: none;
+  display: block;
+  flex-direction: column;
+  margin-left: 8px;
+  padding-left: 0px;
+}
+
+li {
+  width: 100%;
+  display: inline-block;
+}
+
+i.fa {
+  display: inline-block;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+i.fa-trash-o {
+  float: right;
+  display: inline-block;
+}

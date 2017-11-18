@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  background-color: #ffffb3;
+  margin: auto;
+  max-width: 300px;
+  box-shadow: 2px 2px 5px #000;
+}
+
+h1 {
+  font-size: 24px;
+  text-align: center;
+}
