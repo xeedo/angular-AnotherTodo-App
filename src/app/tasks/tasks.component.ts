@@ -10,26 +10,33 @@ import { TASKS } from '../mock-task';
 export class TasksComponent implements OnInit {
   tasks = TASKS;
 
-
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  markDone(task: Task): void {
+  toggleDone(task: Task): void {
     for (let t in this.tasks) {
       if (this.tasks[t].id == task.id) {
-        this.tasks[t].isDone = true;
-      };
+        this.tasks[t].isDone = !task.isDone;
+      }
     }
   }
 
-  markUndone(task: Task): void {
+  deleteTask(task: Task): void {
     for (let t in this.tasks) {
       if (this.tasks[t].id == task.id) {
-        this.tasks[t].isDone = false; 
-      };
+        this.tasks.splice(Number(t),1);
+      }
     }
+  }
+
+  onEnter(value: string):void {
+    this.tasks.push({
+      id: this.tasks.length + 1,
+      name: value,
+      isDone: false
+    });
+    console.log(this.tasks)
   }
 
 }

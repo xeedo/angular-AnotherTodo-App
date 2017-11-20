@@ -1,13 +1,18 @@
+<div class="card align-center">
+  <label class="small-txt align-left">Add new task:</label>
+  <input #box type="text" name="txt" (keyup.enter)="onEnter(box.value)">
+</div>
+
 <div class="card">
   <ul>
     <li *ngFor="let task of tasks">
-      <i *ngIf="!task.isDone" class="fa fa-square-o" (click)="markDone(task)"></i>
+      <i *ngIf="!task.isDone" class="fa fa-square-o" (click)="toggleDone(task)"></i>
 
-      <i *ngIf="task.isDone" class="fa fa-check-square-o" (click)="markUndone(task)"></i>
+      <i *ngIf="task.isDone" class="fa fa-check-square-o" (click)="toggleDone(task)"></i>
 
       {{task.name}}
 
-      <i class="fa fa-trash-o"></i>
+      <i class="fa fa-trash-o" (click)="deleteTask(task)"></i>
     </li>
   </ul>
 </div>
