@@ -15,19 +15,11 @@ export class TasksComponent implements OnInit {
   ngOnInit() { }
 
   toggleDone(task: Task): void {
-    for (let t in this.tasks) {
-      if (this.tasks[t].id == task.id) {
-        this.tasks[t].isDone = !task.isDone;
-      }
-    }
+    this.tasks[this.findInTasks('id', task.id)].isDone = !task.isDone;
   }
 
   deleteTask(task: Task): void {
-    for (let t in this.tasks) {
-      if (this.tasks[t].id == task.id) {
-        this.tasks.splice(Number(t),1);
-      }
-    }
+    this.tasks.splice(this.findInTasks('id', task.id), 1);
   }
 
   onEnter(value: string):void {
@@ -36,7 +28,12 @@ export class TasksComponent implements OnInit {
       name: value,
       isDone: false
     });
-    console.log(this.tasks)
+  }
+
+  findInTasks(key: string, value: string): number {
+    return this.tasks
+      .map(function(el) {return el[key]})
+      .indexOf(Number(value))
   }
 
 }
